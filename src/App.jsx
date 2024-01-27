@@ -167,7 +167,7 @@ const App = () => {
             <Grid item xs={12}>
               <Paper elevation={3} style={{ padding: '20px', marginBottom: '10px' }}>
                 <Typography variant="h6" gutterBottom>
-                  Result from Harmoia B+ tree server
+                  Result from Harmonia B+ tree server
                 </Typography>
                 {data1 && 
                 <>
@@ -194,7 +194,7 @@ const App = () => {
       </Grid>
       <Grid style={{marginTop : "20px"}}> 
         <Paper style={{ padding:"20px"}}>
-          <Typography variant="h6">Harmoia B+ tree </Typography>
+          <Typography variant="h6">Harmonia B+ tree </Typography>
           <Typography>
             Harmonia, a novel B+tree structure to bridge the gaps between B+tree
             and GPU. Concurrent B+tree queries involve many global
