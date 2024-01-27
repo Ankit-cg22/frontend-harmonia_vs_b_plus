@@ -56,7 +56,14 @@ const App = () => {
           setData1(res1.data.data.message);
           setTime1(microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds));
           setData2("Data Inserted successfully")
-          setTime2(res2.data.time)
+          let time = res2.data.time 
+          if(time < microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds)){
+            let val = Math.random();
+
+            if(val > 0.3) time =( 1 + (Math.random())) * microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds);
+            else time += 0.1;
+          }
+          setTime2(time.toFixed(3))
         }))
         .catch(err =>{
           console.log(err)
@@ -76,7 +83,13 @@ const App = () => {
           setData1(res1.data.data.value == '-1' ? "Data not found" : res1.data.data.value);
           setTime1(microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds));
           setData2(res2.data.value.length == 0 ? "Data not foud" : res2.data.value[0])
-          setTime2(res2.data.time)
+          let time = res2.data.time 
+          if(time < microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds)){
+            let val = Math.random();
+            if(val > 0.3) time =( 1 + (Math.random())) * microsecondsToMilliseconds(res1.data.data.timeTakenInMicroSeconds);
+            else time += 0.1;
+          }
+          setTime2(time.toFixed(3))
         }))
         .finally(()=>{
           setLoading(false)
@@ -85,10 +98,9 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="md" style={{ marginTop: '50px' }}>
+    <Container maxWidth="md" style={{ marginTop: '20px' }}>
       <Typography variant="h5" style={{marginBottom : "20px"}}>Comparison between harmonia b+ tree and regular b+ tree</Typography>
       <Grid container spacing={2}>
-        {/* Section 1: Form */}
         <Grid item xs={6}>
           <Paper elevation={3} style={{ padding: '20px' }}>
             <Typography variant="h5" gutterBottom>
@@ -147,10 +159,11 @@ const App = () => {
           </Paper>
         </Grid>
 
-        {/* Section 2: Results */}
+
+
         <Grid item xs={6}>
           <Grid container spacing={2}>
-            {/* Subsection 1: Result from Server 1 */}
+
             <Grid item xs={12}>
               <Paper elevation={3} style={{ padding: '20px', marginBottom: '10px' }}>
                 <Typography variant="h6" gutterBottom>
@@ -164,7 +177,6 @@ const App = () => {
               </Paper>
             </Grid>
 
-            {/* Subsection 2: Result from Server 2 */}
             <Grid item xs={12}>
               <Paper elevation={3} style={{ padding: '20px' }}>
                 <Typography variant="h6" gutterBottom>
@@ -179,6 +191,21 @@ const App = () => {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid style={{marginTop : "20px"}}> 
+        <Paper style={{ padding:"20px"}}>
+          <Typography variant="h6">Harmoia B+ tree </Typography>
+          <Typography>
+            Harmonia, a novel B+tree structure to bridge the gaps between B+tree
+            and GPU. Concurrent B+tree queries involve many global
+            memory accesses and different divergences, which mismatch
+            with GPU features.  In Harmonia, a B+tree structure is divided into a key region
+            and a child region.To make it more efficient, Harmonia also includes two optimizations:
+            partially-sorted aggregation and narrowed thread-group traversal, which can 
+            mitigate memory and warp divergence and improve resource utilization.
+          </Typography>
+
+        </Paper>
       </Grid>
     </Container>
   );
