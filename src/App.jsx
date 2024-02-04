@@ -122,6 +122,7 @@ const App = () => {
               {action === 'insert' && (
                 <>
                   <TextField
+                    id =  "key_ipt"
                     label="Key"
                     fullWidth
                     margin="normal"
@@ -129,6 +130,7 @@ const App = () => {
                     onChange={(e) => setKey(e.target.value)}
                   />
                   <TextField
+                    id =  "value_ipt"
                     label="Value"
                     fullWidth
                     margin="normal"
