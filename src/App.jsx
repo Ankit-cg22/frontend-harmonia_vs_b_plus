@@ -112,9 +112,10 @@ const App = () => {
                 <Select
                   value={action}
                   onChange={(e) => setAction(e.target.value)}
+                  id = "action_selector"
                 >
-                  <MenuItem value="insert">Insert</MenuItem>
-                  <MenuItem value="search">Search</MenuItem>
+                  <MenuItem id="insert_option" value="insert">Insert</MenuItem>
+                  <MenuItem id="search_option" value="search">Search</MenuItem>
                 </Select>
               </FormControl>
 
@@ -174,7 +175,7 @@ const App = () => {
                 {data1 && 
                 <>
                 <Typography variant="subtitle1">data : {data1}</Typography>
-                <Typography variant="subtitle1" id="time_harmonia">time (in milliseconds): {time1}</Typography>
+                <Typography variant="subtitle1" >time (in milliseconds): <span id="time_harmonia">{time1}</span></Typography>
                 </>}
               </Paper>
             </Grid>
@@ -187,7 +188,7 @@ const App = () => {
                 {data2 && 
                 <>
                 <Typography variant="subtitle1">data : {data2}</Typography>
-                <Typography variant="subtitle1" id="time_bplus">time (in milliseconds): {time2}</Typography>
+                <Typography variant="subtitle1" >time (in milliseconds):<span id="time_bplus">{time2}</span></Typography>
                 </>}
               </Paper>
             </Grid>
