@@ -139,6 +139,7 @@ const App = () => {
 
               {action === 'search' && (
                 <TextField
+                  id = "key_input"
                   label="Key"
                   fullWidth
                   margin="normal"
@@ -148,6 +149,7 @@ const App = () => {
               )}
 
               <Button
+                id = "submit_button"
                 type="submit"
                 variant="contained"
                 color="primary"
@@ -172,7 +174,7 @@ const App = () => {
                 {data1 && 
                 <>
                 <Typography variant="subtitle1">data : {data1}</Typography>
-                <Typography variant="subtitle1">time (in milliseconds): {time1}</Typography>
+                <Typography variant="subtitle1" id="time_harmonia">time (in milliseconds): {time1}</Typography>
                 </>}
               </Paper>
             </Grid>
@@ -185,7 +187,7 @@ const App = () => {
                 {data2 && 
                 <>
                 <Typography variant="subtitle1">data : {data2}</Typography>
-                <Typography variant="subtitle1">time (in milliseconds): {time2}</Typography>
+                <Typography variant="subtitle1" id="time_bplus">time (in milliseconds): {time2}</Typography>
                 </>}
               </Paper>
             </Grid>
